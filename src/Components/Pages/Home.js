@@ -1,11 +1,8 @@
-import React from 'react';
+import React from "react";
+import Navbar from "../Layout/HomepageNavbar";
 
 const Home = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <Navbar />;
 };
 
 export default Home;

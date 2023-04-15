@@ -4,4 +4,4 @@ const RootLayout = () => {
   return <div>Layout</div>;
 };
 
-export default RootLayoutLayout;
+export default RootLayout;

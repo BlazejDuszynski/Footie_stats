@@ -1,7 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Outlet } from "react-router";
+import HomepageNavbar from "../Layout/HomepageNavbar";
 
 const RootLayout = () => {
-  return <div>Layout</div>;
+  return (
+    <Fragment>
+      <HomepageNavbar />
+      <Outlet />
+    </Fragment>
+  );
 };
 
 export default RootLayout;

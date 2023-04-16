@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router";
 
 const Statistics = () => {
-  return <div>Statistics section</div>;
+  const { leagueId } = useParams();
+  return <div>Statistics section of league in {leagueId}.</div>;
 };
 
 export default Statistics;

@@ -11,6 +11,7 @@ import LeaguesRoot from "./Components/Pages/LeaguesRootLayout";
 import Matches from "./Components/Pages/SubNavigationItems/Matches";
 import Table from "./Components/Pages/SubNavigationItems/Table";
 import Statistics from "./Components/Pages/SubNavigationItems/Statistics";
+import LeagueProvider from "./Components/Store/LeagueProvider";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       {
-        path: ":leagueId",
+        path: "",
         element: <LeaguesRoot />,
         children: [
           { path: ":leagueId/matches", element: <Matches /> },
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <LeagueProvider>
+      <RouterProvider router={router} />
+    </LeagueProvider>
+  );
 }
 
 export default App;

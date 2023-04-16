@@ -1,7 +1,10 @@
 import React from "react";
+import { useParams } from "react-router";
 
 const Matches = () => {
-  return <div>Matches section</div>;
+  const { leagueId } = useParams();
+
+  return <div>Matches section of league in {leagueId}.</div>;
 };
 
 export default Matches;

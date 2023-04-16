@@ -1,7 +1,9 @@
 import React from "react";
+import { useParams } from "react-router";
 
 const Table = () => {
-  return <div>Table section</div>;
+  const { leagueId } = useParams();
+  return <div>Table section of league in {leagueId}.</div>;
 };
 
 export default Table;

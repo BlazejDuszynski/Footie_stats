@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import LeagueContext from "../Store/league-context";
 
 const SectionsNavigation = () => {
-  const leagueId = "PremierLeague";
+  const { league } = useContext(LeagueContext);
 
   return (
     <div>
-      <Link to={`/${leagueId}/matches`}>Matches</Link>
-      <Link to={`/${leagueId}/table`}>Table</Link>
-      <Link to={`/${leagueId}/statistics`}>Statistics</Link>
+      <Link to={`/${league}/matches`}>Matches</Link>
+      <Link to={`/${league}/table`}>Table</Link>
+      <Link to={`/${league}/statistics`}>Statistics</Link>
     </div>
   );
 };

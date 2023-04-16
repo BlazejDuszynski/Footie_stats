@@ -7,35 +7,35 @@ const Navbar = () => {
     <nav className={classes.navbar}>
       <ul>
         <NavLink
-          to="/PremierLeague"
+          to="PremierLeague"
           // className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
           <li>Premier League</li>
         </NavLink>
         <NavLink
-          to="/Bundesliga"
+          to="Bundesliga"
           // className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
           <li>Bundesliga</li>
         </NavLink>
         <NavLink
-          to="/LaLiga"
+          to="LaLiga"
           // className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
           <li>La Liga</li>
         </NavLink>
         <NavLink
-          to="/SerieA"
+          to="SerieA"
           // className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >
           <li>Serie A</li>
         </NavLink>
         <NavLink
-          to="/Ligue1"
+          to="Ligue1"
           // className={({ isActive }) => (isActive ? classes.active : undefined)}
           end
         >

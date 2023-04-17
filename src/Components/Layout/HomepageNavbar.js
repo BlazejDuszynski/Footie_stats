@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import classes from "./HomepageNavbar.module.css";
 import HomepageNavbarItem from "./HomepageNavbarItem";
 import { useLocation } from "react-router";
@@ -6,8 +6,12 @@ import { useLocation } from "react-router";
 const HomepageNavbar = () => {
   const location = useLocation();
   console.log(location);
+
   const navbarClass =
-    location === "/" ? classes.homepageNavbarClass : classes.leagueNavbarClass;
+    location.pathname === "/"
+      ? classes.homepageNavbarClass
+      : classes.leagueNavbarClass;
+
   const LEAGUES = [
     { name: "Premier League", id: "1", link: "premierleague" },
     { name: "Bundesliga", id: "2", link: "bundesliga" },
@@ -17,22 +21,24 @@ const HomepageNavbar = () => {
   ];
 
   return (
-    <nav className={navbarClass}>
-      <ul>
-        {LEAGUES.map((league) => {
-          return (
-            <HomepageNavbarItem
-              to={`${league.link}/matches`}
-              key={league.id}
-              name={league.name}
-              link={league.link}
-              location={location}
-            />
-          );
-        })}
-      </ul>
-      <a>LOGO</a>
-    </nav>
+    <Fragment>
+      <nav className={navbarClass}>
+        <a>LOGO</a>
+        <ul className={classes.navbarList}>
+          {LEAGUES.map((league) => {
+            return (
+              <HomepageNavbarItem
+                to={`${league.link}/matches`}
+                key={league.id}
+                name={league.name}
+                link={league.link}
+                location={location}
+              />
+            );
+          })}
+        </ul>
+      </nav>
+    </Fragment>
   );
 };
 

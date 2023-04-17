@@ -1,8 +1,22 @@
 .homepageNavbarClass {
     color: whitesmoke;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5vh auto;
+    width: 60%;
+    height: 10vh;
+    color: rgb(209, 198, 255);
 }
 
 .leagueNavbarClass {
     color: rgb(69, 69, 209);
+}
+
+.navbarList {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 100%;
 }

@@ -1,3 +1,8 @@
-.navbar {
+.homepageNavbarClass {
     color: whitesmoke;
+    display: flex;
+}
+
+.leagueNavbarClass {
+    color: rgb(69, 69, 209);
 }

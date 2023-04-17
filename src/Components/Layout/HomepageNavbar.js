@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import classes from "./HomepageNavbar.module.css";
 import HomepageNavbarItem from "./HomepageNavbarItem";
+import { useLocation } from "react-router";
 
-const Navbar = () => {
+const HomepageNavbar = () => {
+  const location = useLocation();
+  console.log(location);
+  const navbarClass =
+    location === "/" ? classes.homepageNavbarClass : classes.leagueNavbarClass;
   const LEAGUES = [
     { name: "Premier League", id: "1", link: "premierleague" },
     { name: "Bundesliga", id: "2", link: "bundesliga" },
@@ -12,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={classes.navbar}>
+    <nav className={navbarClass}>
       <ul>
         {LEAGUES.map((league) => {
           return (
@@ -21,47 +26,14 @@ const Navbar = () => {
               key={league.id}
               name={league.name}
               link={league.link}
+              location={location}
             />
           );
         })}
-        {/* <NavLink
-          to="PremierLeague/matches"
-          // className={({ isActive }) => (isActive ? classes.active : undefined)}
-          end
-        >
-          <li>Premier League</li>
-        </NavLink>
-        <NavLink
-          to="Bundesliga/matches"
-          // className={({ isActive }) => (isActive ? classes.active : undefined)}
-          end
-        >
-          <li>Bundesliga</li>
-        </NavLink>
-        <NavLink
-          to="LaLiga/matches"
-          // className={({ isActive }) => (isActive ? classes.active : undefined)}
-          end
-        >
-          <li>La Liga</li>
-        </NavLink>
-        <NavLink
-          to="SerieA/matches"
-          // className={({ isActive }) => (isActive ? classes.active : undefined)}
-          end
-        >
-          <li>Serie A</li>
-        </NavLink>
-        <NavLink
-          to="Ligue1/matches"
-          // className={({ isActive }) => (isActive ? classes.active : undefined)}
-          end
-        >
-          <li>Ligue 1</li>
-        </NavLink> */}
       </ul>
+      <a>LOGO</a>
     </nav>
   );
 };
 
-export default Navbar;
+export default HomepageNavbar;

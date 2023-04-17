@@ -2,3 +2,7 @@
     text-decoration: none;
     color: inherit;
 }
+
+.homepageNavItemClass:hover {
+    border-bottom: 1px solid var(--lightViolet);
+}

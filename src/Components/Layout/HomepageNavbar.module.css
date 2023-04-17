@@ -17,6 +17,7 @@
 .navbarList {
     display: flex;
     justify-content: space-around;
-    list-style: none;
     width: 100%;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
 }

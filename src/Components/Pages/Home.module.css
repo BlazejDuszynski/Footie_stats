@@ -20,3 +20,45 @@
     margin: 0 auto;
     line-height: 30px;
 }
+
+.leaguesSection {
+    text-align: center;
+    width: 100%;
+}
+
+.leaguesSection__header {
+    position: relative;
+    width: fit-content;
+    padding: 30px 0;
+    margin: 0 auto 30px;
+    font-weight: 700;
+    color: var(--lighterViolet);
+}
+
+.leaguesSection__header::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 30%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--lighterViolet);
+}
+
+.leaguesGridContainer {
+    overflow: hidden;
+    display: grid;
+    margin: 0 auto;
+    width: 60%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gridItem {
+    height: 20vw;
+    width: 20vw;
+    background-image: url(https://resources.premierleague.com/photos/2021/08/12/7a9adc89-9678-45c6-9b3e-3cdcb06b2f3e/PL-2022-Editorial_964x643.png?width=930&height=620);
+    background-position: cover;
+    background-size: 100%;
+}

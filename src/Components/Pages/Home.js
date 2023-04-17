@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import classes from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const h1style = {
@@ -24,7 +25,28 @@ const Home = () => {
           favourite team or player of the best european leagues.
         </p>
       </section>
-      <section></section>
+      <section className={classes.leaguesSection}>
+        <header className={classes.leaguesSection__header}>
+          CHOOSE A LEAGUE
+        </header>
+        <div className={classes.leaguesGridContainer}>
+          <Link className={classes.gridItem}>
+            <p>Premier League</p>
+          </Link>
+          <Link className={classes.gridItem}>
+            <p>Premier League</p>
+          </Link>
+          <Link className={classes.gridItem}>
+            <p>Premier League</p>
+          </Link>
+          <Link className={classes.gridItem}>
+            <p>Premier League</p>
+          </Link>
+          <Link className={classes.gridItem}>
+            <p>Premier League</p>
+          </Link>
+        </div>
+      </section>
     </Fragment>
   );
 };

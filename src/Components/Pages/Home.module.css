@@ -1,12 +1,22 @@
-.homeSection {
+.welcomeSection {
     color: aliceblue;
     margin: 15vh auto;
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .welcome {
     text-transform: uppercase;
     color: var(--lighterViolet);
     font-size: 2em;
+}
+
+.welcomeParagraph {
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 30px;
 }

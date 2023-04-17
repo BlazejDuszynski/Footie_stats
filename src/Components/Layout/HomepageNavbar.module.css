@@ -8,6 +8,7 @@
     width: 60%;
     height: 10vh;
     color: rgb(209, 198, 255);
+    position: sticky;
 }
 
 .leagueNavbarClass {

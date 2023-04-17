@@ -1,0 +1,12 @@
+.homeSection {
+    color: aliceblue;
+    margin: 15vh auto;
+    text-align: center;
+    width: 100%;
+}
+
+.welcome {
+    text-transform: uppercase;
+    color: var(--lighterViolet);
+    font-size: 2em;
+}

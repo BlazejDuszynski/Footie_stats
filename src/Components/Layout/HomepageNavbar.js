@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import classes from "./HomepageNavbar.module.css";
 import HomepageNavbarItem from "./HomepageNavbarItem";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 const HomepageNavbar = () => {
   const location = useLocation();
@@ -23,7 +24,7 @@ const HomepageNavbar = () => {
   return (
     <Fragment>
       <nav className={navbarClass}>
-        <a>LOGO</a>
+        <Link to="">LOGO</Link>
         <ul className={classes.navbarList}>
           {LEAGUES.map((league) => {
             return (

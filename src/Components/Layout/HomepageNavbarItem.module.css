@@ -1,6 +1,8 @@
 .navItem {
     text-decoration: none;
     color: inherit;
+    font-family: 'Russo One', sans-serif;
+    font-style: italic;
 }
 
 .homepageNavItemClass:hover {

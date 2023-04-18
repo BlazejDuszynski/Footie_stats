@@ -16,7 +16,7 @@ const Home = () => {
     <Fragment>
       <section className={classes.welcomeSection}>
         <h1 className={classes.welcome}>
-          <span style={h1style}>Footie Stats</span> - all TOP 5 european leagues
+          <span style={h1style}>Footie Stats</span> - TOP 5 european leagues
           in one place!
         </h1>
         <p className={classes.welcomeParagraph}>

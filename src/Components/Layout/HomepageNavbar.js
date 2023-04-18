@@ -24,7 +24,7 @@ const HomepageNavbar = () => {
   return (
     <Fragment>
       <nav className={navbarClass}>
-        <Link to="">LOGO</Link>
+        <Link to=""></Link>
         <ul className={classes.navbarList}>
           {LEAGUES.map((league) => {
             return (

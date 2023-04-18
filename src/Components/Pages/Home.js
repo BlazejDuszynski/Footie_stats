@@ -61,7 +61,7 @@ const Home = () => {
           <Link className={classes.gridItem}>
             <img
               className={classes.leagueImage}
-              src="https://i.pinimg.com/736x/f8/22/7c/f8227c9c6000f3f53af29b07acde9c98.jpg"
+              src="https://e0.pxfuel.com/wallpapers/478/35/desktop-wallpaper-psg-match-schedule-when-is-lionel-messi-playing-for-paris-saint-germain-sporting-news-messi-neymar-mbappe-psg.jpg"
             ></img>
             <p className={classes.leagueName}>Ligue 1</p>
           </Link>

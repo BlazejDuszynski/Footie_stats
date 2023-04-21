@@ -50,7 +50,7 @@
     overflow: hidden;
     display: grid;
     margin: 0 auto;
-    width: 60%;
+    width: 70%;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }

@@ -9,9 +9,15 @@ const HomepageNavbar = () => {
   console.log(location);
 
   const navbarClass =
+    location.pathname === "/" ? classes.homepageNavbar : classes.leagueNavbar;
+
+  const navbarListClass =
     location.pathname === "/"
-      ? classes.homepageNavbar
-      : classes.leagueNavbar;
+      ? classes.homepageNavbarList
+      : classes.leagueNavbarList;
+
+  const navbarLogoClass =
+    location.pathname === "/" ? classes.homepageLogo : classes.leagueLogo;
 
   const LEAGUES = [
     { name: "Premier League", id: "1", link: "premierleague" },
@@ -24,8 +30,10 @@ const HomepageNavbar = () => {
   return (
     <Fragment>
       <nav className={navbarClass}>
-        <Link to=""></Link>
-        <ul className={classes.navbarList}>
+        <Link to="" className={navbarLogoClass}>
+          LOGO
+        </Link>
+        <ul className={navbarListClass}>
           {LEAGUES.map((league) => {
             return (
               <HomepageNavbarItem

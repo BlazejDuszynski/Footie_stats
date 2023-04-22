@@ -7,7 +7,7 @@
     margin: 5vh auto;
     width: 60%;
     height: 10vh;
-    color: rgb(209, 198, 255);
+    color: var(--lightViolet);
     position: sticky;
 }
 
@@ -38,5 +38,5 @@
 }
 
 .leagueLogo {
-    min-width: 15vw;
+    min-width: 20vw;
 }

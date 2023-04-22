@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LeagueContext from "../Store/league-context";
 import classes from "./SectionsNavigation.module.css";
 import { TbSoccerField } from "react-icons/tb";
@@ -11,30 +11,45 @@ const SectionsNavigation = () => {
 
   return (
     <aside className={classes.asideNavigation}>
-      <Link
-        className={classes.asideNavigationItemLink}
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? classes.asideNavigationItemLinkActive
+            : classes.asideNavigationItemLink
+        }
         to={`/${league}/matches`}
       >
         <p>
           <TbSoccerField />
         </p>
         <p>Matches</p>
-      </Link>
-      <Link className={classes.asideNavigationItemLink} to={`/${league}/table`}>
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+        isActive
+        ? classes.asideNavigationItemLinkActive
+        : classes.asideNavigationItemLink
+    }
+        to={`/${league}/table`}
+      >
         <p>
           <RiListOrdered />
         </p>
         <p>Table</p>
-      </Link>
-      <Link
-        className={classes.asideNavigationItemLink}
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+        isActive
+        ? classes.asideNavigationItemLinkActive
+        : classes.asideNavigationItemLink
+    }
         to={`/${league}/statistics`}
       >
         <p>
           <IoStatsChart />
         </p>
         <p>Statistics</p>
-      </Link>
+      </NavLink>
     </aside>
   );
 };

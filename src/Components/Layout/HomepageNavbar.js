@@ -10,8 +10,8 @@ const HomepageNavbar = () => {
 
   const navbarClass =
     location.pathname === "/"
-      ? classes.homepageNavbarClass
-      : classes.leagueNavbarClass;
+      ? classes.homepageNavbar
+      : classes.leagueNavbar;
 
   const LEAGUES = [
     { name: "Premier League", id: "1", link: "premierleague" },

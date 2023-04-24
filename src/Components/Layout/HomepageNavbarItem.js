@@ -17,13 +17,17 @@ const HomepageNavbarItem = (props) => {
   };
 
   return (
-    <li>
+    <li className={classes.navItem}>
       <NavLink
-        className={classes.navItem + " " + navItemClass}
+        className={navItemClass}
         onClick={selectLeagueHandler}
         to={props.to}
       >
-        {props.name}
+        {props.location.pathname === "/" ? (
+          props.name
+        ) : (
+          <p className={classes.navItemLogo}>{props.name}</p>
+        )}
       </NavLink>
     </li>
   );

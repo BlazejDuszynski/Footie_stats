@@ -15,7 +15,6 @@
     color: var(--lightViolet);
     justify-content: flex-start;
     width: 100%;
-    padding: 20px 0;
     background-color: rgb(33, 30, 73);
     display: flex;
 }

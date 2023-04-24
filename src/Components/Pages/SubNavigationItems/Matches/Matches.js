@@ -3,11 +3,13 @@ import { useParams } from "react-router";
 import classes from "./Matches.module.css";
 
 const Matches = () => {
-  const { leagueId } = useParams();
+  const { league } = useParams();
 
   return (
     <div className={classes.matchesSection}>
-      Matches section of league in {leagueId}.
+      {/* <div></div> */}
+      <header>{league}</header>
+      <p>Calendar</p>
     </div>
   );
 };

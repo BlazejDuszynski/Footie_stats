@@ -3,7 +3,7 @@ import Home from "./Components/Pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Components/Pages/Root";
 import LeaguesRoot from "./Components/Pages/LeaguesRootLayout";
-import Matches from "./Components/Pages/SubNavigationItems/Matches";
+import Matches from "./Components/Pages/SubNavigationItems/Matches/Matches";
 import Table from "./Components/Pages/SubNavigationItems/Table";
 import Statistics from "./Components/Pages/SubNavigationItems/Statistics";
 import LeagueProvider from "./Components/Store/LeagueProvider";

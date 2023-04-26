@@ -18,7 +18,7 @@ export default Matches;
 export async function loader({ params }, leaguesIDs) {
   const seasonID = leaguesIDs.find(
     ({ paramsId }) => paramsId === params.leagueId
-  )?.backendSeasonId;
+  )?.backendLeagueId;
   const response = await fetch(
     "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2020-05-16&league_id=" +
       seasonID

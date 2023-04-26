@@ -1,23 +1,23 @@
 const leaguesIDs = [
   {
     paramsId: "premierleague",
-    backendSeasonId: "12516",
+    backendLeagueId: "583",
   },
   {
     paramsId: "bundesliga",
-    backendSeasonId: "406",
+    backendLeagueId: "594",
   },
   {
     paramsId: "laliga",
-    backendSeasonId: "12597",
+    backendLeagueId: "637",
   },
   {
     paramsId: "seriea",
-    backendSeasonId: "12606",
+    backendLeagueId: "719",
   },
   {
     paramsId: "ligue1",
-    backendSeasonId: "12569",
+    backendLeagueId: "799",
   },
 ];
 

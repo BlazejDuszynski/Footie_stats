@@ -2,4 +2,5 @@
     background-color: var(--purpleBackground);
     width: 100%;
     padding: 10px 10%;
+    color: var(--lighterViolet);
 }

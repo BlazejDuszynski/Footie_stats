@@ -1,7 +1,5 @@
 import React from "react";
-import { useParams } from "react-router";
 import classes from "./Matches.module.css";
-import leaguesIDs from "../leaguesIDs";
 
 const Matches = () => {
   return (
@@ -20,9 +18,10 @@ export async function loader({ params }, leaguesIDs) {
     ({ paramsId }) => paramsId === params.leagueId
   )?.backendLeagueId;
   const response = await fetch(
-    "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2020-05-16&league_id=" +
+    "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
       seasonID
   );
-  console.log(response);
-  return response;
+  const resData = await response.json();
+  console.log(resData);
+  return resData;
 }

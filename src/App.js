@@ -10,6 +10,7 @@ import Table from "./Components/Pages/SubNavigationItems/Table/Table";
 import Statistics from "./Components/Pages/SubNavigationItems/Statistics/Statistics";
 import LeagueProvider from "./Components/Store/LeagueProvider";
 import leaguesIDs from "./Components/Pages/SubNavigationItems/leaguesIDs";
+import DateProvider from "./Components/Store/DateProvider";
 
 const router = createBrowserRouter([
   {
@@ -36,9 +37,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <LeagueProvider>
-      <RouterProvider router={router} />
-    </LeagueProvider>
+    <DateProvider>
+      <LeagueProvider>
+        <RouterProvider router={router} />
+      </LeagueProvider>
+    </DateProvider>
   );
 }
 

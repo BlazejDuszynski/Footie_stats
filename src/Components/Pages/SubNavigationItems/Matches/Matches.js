@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router";
 import classes from "./Matches.module.css";
 import { BsCalendar4Event } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import MatchesContainer from "./MatchesContainer";
+import DateContext from "../../../Store/date-context";
 
 const Matches = () => {
   const matches = useLoaderData();
-  const [date, setDate] = useState(new Date());
-  const month = date.getMonth() + 1;
-  const stringMonth = month.toString();
-
-  const day = date.getDate();
-  const stringDay = day.toString();
+  const dateCtx = useContext(DateContext);
 
   const nextDayHandler = () => {
-    const newDate = new Date(date);
-    newDate.setDate(date.getDate() + 1);
-    setDate(newDate);
+    dateCtx.changeDate(1);
   };
 
   const prevDayHandler = () => {
-    const newDate = new Date(date);
-    newDate.setDate(date.getDate() - 1);
-    setDate(newDate);
+    dateCtx.changeDate(-1);
   };
+
+  const month = dateCtx.date.getMonth() + 1;
+  const stringMonth = month.toString();
+
+  const day = dateCtx.date.getDate();
+  const stringDay = day.toString();
 
   return (
     <main className={classes.matchesSection}>

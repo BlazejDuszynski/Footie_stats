@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import classes from "./Matches.module.css";
+import { BsCalendar4Event } from "react-icons/bs";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Matches = () => {
   const matches = useLoaderData();
@@ -14,11 +16,19 @@ const Matches = () => {
     <div className={classes.matchesSection}>
       <section className={classes.calendarSection}>
         <div className={classes.calendar}>
-          <button>-</button>
-          <p>
-            {day.toString.length === 1 ? "0" + day : day}/{month.toString.length === 1 ? "0" + month : month}
-          </p>
-          <button>+</button>
+          <button className={classes.calendarButton + " " + classes.prevButton}>
+            <IoIosArrowBack />
+          </button>
+          <div className={classes.calendarContent}>
+            <BsCalendar4Event />
+            <p>
+              {day.toString.length === 1 ? "0" + day : day}/
+              {month.toString.length === 1 ? "0" + month : month}
+            </p>
+          </div>
+          <button className={classes.calendarButton + " " + classes.nextButton}>
+            <IoIosArrowForward />
+          </button>
         </div>
       </section>
     </div>

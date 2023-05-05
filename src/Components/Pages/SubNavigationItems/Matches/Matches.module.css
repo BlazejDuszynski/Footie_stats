@@ -6,7 +6,49 @@
 }
 
 .calendarSection {
-    width: 100%;
     padding: 10vh 0;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar {
+    display: flex;
+    background-color: var(--subpageNavbar);
+    color: var(--lighterViolet);
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.calendarContent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.calendarButton {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 40px;
+    background-color: inherit;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.calendarButton:hover {
+    background-color: rgb(47, 43, 95);
+}
+
+.nextButton {
+    right: 0;
 }

@@ -8,25 +8,44 @@ const Matches = () => {
   const matches = useLoaderData();
   const [date, setDate] = useState(new Date());
   const month = date.getMonth() + 1;
+  const stringMonth = month.toString();
+
   const day = date.getDate();
-  console.log(day.length);
-  console.log(day);
+  const stringDay = day.toString();
+
+  const nextDayHandler = () => {
+    const newDate = new Date(date);
+    newDate.setDate(date.getDate() + 1);
+    setDate(newDate);
+  };
+
+  const prevDayHandler = () => {
+    const newDate = new Date(date);
+    newDate.setDate(date.getDate() - 1);
+    setDate(newDate);
+  };
 
   return (
     <div className={classes.matchesSection}>
       <section className={classes.calendarSection}>
         <div className={classes.calendar}>
-          <button className={classes.calendarButton + " " + classes.prevButton}>
+          <button
+            onClick={prevDayHandler}
+            className={classes.calendarButton + " " + classes.prevButton}
+          >
             <IoIosArrowBack />
           </button>
           <div className={classes.calendarContent}>
             <BsCalendar4Event />
             <p>
-              {day.toString.length === 1 ? "0" + day : day}/
-              {month.toString.length === 1 ? "0" + month : month}
+              {stringDay.length === 1 ? "0" + day : day}/
+              {stringMonth.length === 1 ? "0" + month : month}
             </p>
           </div>
-          <button className={classes.calendarButton + " " + classes.nextButton}>
+          <button
+            onClick={nextDayHandler}
+            className={classes.calendarButton + " " + classes.nextButton}
+          >
             <IoIosArrowForward />
           </button>
         </div>

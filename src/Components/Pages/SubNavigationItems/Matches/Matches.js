@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import classes from "./Matches.module.css";
 import { BsCalendar4Event } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import MatchesContainer from "./MatchesContainer";
 
 const Matches = () => {
   const matches = useLoaderData();
@@ -26,7 +27,7 @@ const Matches = () => {
   };
 
   return (
-    <div className={classes.matchesSection}>
+    <main className={classes.matchesSection}>
       <section className={classes.calendarSection}>
         <div className={classes.calendar}>
           <button
@@ -50,7 +51,8 @@ const Matches = () => {
           </button>
         </div>
       </section>
-    </div>
+      <MatchesContainer />
+    </main>
   );
 };
 

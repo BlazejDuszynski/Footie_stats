@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLoaderData } from "react-router";
 import classes from "./Matches.module.css";
 
 const Matches = () => {
+  const matches = useLoaderData();
+  const [date, setDate] = useState(new Date());
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  console.log(day.length);
+  console.log(day);
+
   return (
     <div className={classes.matchesSection}>
-      {/* <div></div> */}
-      <header>{}</header>
-      <p>Calendar</p>
+      <section className={classes.calendarSection}>
+        <div className={classes.calendar}>
+          <button>-</button>
+          <p>
+            {day.toString.length === 1 ? "0" + day : day}/{month.toString.length === 1 ? "0" + month : month}
+          </p>
+          <button>+</button>
+        </div>
+      </section>
     </div>
   );
 };
@@ -22,6 +36,5 @@ export async function loader({ params }, leaguesIDs) {
       seasonID
   );
   const resData = await response.json();
-  console.log(resData);
   return resData;
 }

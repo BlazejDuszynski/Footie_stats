@@ -65,9 +65,11 @@ const MatchesContainer = ({ matches }) => {
                   homeTeamAbbr={match.teams.home.short_code}
                   homeTeamName={match.teams.home.name}
                   homeTeamLogo={match.teams.home.img}
+                  homeTeamScore={match.scores.home_score}
                   awayTeamAbbr={match.teams.away.short_code}
                   awayTeamName={match.teams.away.name}
                   awayTeamLogo={match.teams.away.img}
+                  awayTeamScore={match.scores.away_score}
                 />
               </div>
             );

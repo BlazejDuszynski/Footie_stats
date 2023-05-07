@@ -19,3 +19,9 @@
 .teamLogo {
     height: 60px;
 }
+
+.matchResult {
+    font-size: 1.4em;
+    display: flex;
+    gap: 5px;
+}

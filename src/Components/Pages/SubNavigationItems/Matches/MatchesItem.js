@@ -8,7 +8,16 @@ const MatchesItem = (props) => {
         <p className={classes.homeTeamAbbr}>{props.homeTeamAbbr}</p>
         <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
       </div>
-      <div></div>
+      {props.matchStatusName === "Finished" ? (
+        <div className={classes.matchResult}>
+          <p>{props.homeTeamScore}</p>
+          <p>:</p>
+          <p>{props.awayTeamScore}</p>
+        </div>
+      ) : (
+        <p className={classes.matchResult}>VS</p>
+      )}
+
       <div title={props.awayTeamName} className={classes.teamInfo}>
         <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
         <p className={classes.awayTeamAbbr}>{props.awayTeamAbbr}</p>

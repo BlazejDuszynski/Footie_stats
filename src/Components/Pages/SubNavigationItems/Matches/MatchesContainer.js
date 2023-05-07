@@ -59,7 +59,16 @@ const MatchesContainer = ({ matches }) => {
                   />
                 </div>
                 <p className={matchStatusClass}>{matchStatusName}</p>
-                <MatchesItem />
+                <MatchesItem
+                  matches={matches}
+                  matchStatusName={matchStatusName}
+                  homeTeamAbbr={match.teams.home.short_code}
+                  homeTeamName={match.teams.home.name}
+                  homeTeamLogo={match.teams.home.img}
+                  awayTeamAbbr={match.teams.away.short_code}
+                  awayTeamName={match.teams.away.name}
+                  awayTeamLogo={match.teams.away.img}
+                />
               </div>
             );
           })}

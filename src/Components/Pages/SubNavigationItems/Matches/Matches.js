@@ -6,11 +6,12 @@ import MatchesContainer from "./MatchesContainer";
 import DateContext from "../../../Store/date-context";
 import leaguesIDs from "../leaguesIDs";
 import { useParams } from "react-router";
+import LoadingState from "../../../Layout/LoadingState";
 
 const Matches = () => {
   const dateCtx = useContext(DateContext);
   const { leagueId } = useParams();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const nextDayHandler = () => {
     dateCtx.changeDate(1);
@@ -56,7 +57,7 @@ const Matches = () => {
 
   useEffect(() => {
     fetchMatchesData({ leagueId }, leaguesIDs);
-  }, [dateCtx.date]);
+  }, [dateCtx.date, leagueId]);
 
   return (
     <main className={classes.matchesSection}>
@@ -82,21 +83,9 @@ const Matches = () => {
           </button>
         </div>
       </section>
-      {loading ? <p>Loading...</p> : <MatchesContainer />}
+      {loading ? <LoadingState /> : <MatchesContainer />}
     </main>
   );
 };
 
 export default Matches;
-
-// export async function loader({ params }, leaguesIDs) {
-//   const seasonID = leaguesIDs.find(
-//     ({ paramsId }) => paramsId === params.leagueId
-//   )?.backendLeagueId;
-//   const response = await fetch(
-//     "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
-//       seasonID
-//   );
-//   const resData = await response.json();
-//   return resData;
-// }

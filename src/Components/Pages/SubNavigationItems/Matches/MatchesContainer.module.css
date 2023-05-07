@@ -4,3 +4,21 @@
     border-radius: 10px;
     background-color: var(--subpageNavbar);
 }
+
+.noItemsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.noMatchesText {
+    text-align: center;
+    font-size: 1.5em;
+    color: var(--lightViolet);
+    font-style: italic;
+}
+
+.noMatchesImage {
+    height: 400px;
+    width: auto;
+}

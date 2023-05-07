@@ -12,6 +12,7 @@ const Matches = () => {
   const dateCtx = useContext(DateContext);
   const { leagueId } = useParams();
   const [loading, setLoading] = useState(true);
+  const [responseData, setResponseData] = useState({});
 
   const nextDayHandler = () => {
     dateCtx.changeDate(1);
@@ -51,8 +52,7 @@ const Matches = () => {
     console.log(stringMonth, stringDay);
     const resData = await response.json();
     setLoading(false);
-    console.log(resData);
-    return resData;
+    setResponseData(resData.data);
   };
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const Matches = () => {
           </button>
         </div>
       </section>
-      {loading ? <LoadingState /> : <MatchesContainer />}
+      {loading ? <LoadingState /> : <MatchesContainer matches={responseData} />}
     </main>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./Matches.module.css";
 import { BsCalendar4Event } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
@@ -10,6 +10,7 @@ import { useParams } from "react-router";
 const Matches = () => {
   const dateCtx = useContext(DateContext);
   const { leagueId } = useParams();
+  const [loading, setLoading] = useState(false);
 
   const nextDayHandler = () => {
     dateCtx.changeDate(1);
@@ -19,21 +20,37 @@ const Matches = () => {
     dateCtx.changeDate(-1);
   };
 
+  // const year = dateCtx.date.getYear();
+
   const month = dateCtx.date.getMonth() + 1;
-  const stringMonth = month.toString();
+  let stringMonth = month.toString();
+  if (stringMonth.length === 1) {
+    stringMonth = "0" + stringMonth;
+  }
 
   const day = dateCtx.date.getDate();
-  const stringDay = day.toString();
+  let stringDay = day.toString();
+  if (stringDay.length === 1) {
+    stringDay = "0" + stringDay;
+  }
 
   const fetchMatchesData = async ({ leagueId }, leaguesIDs) => {
     const seasonID = leaguesIDs.find(
       ({ paramsId }) => paramsId === leagueId
     )?.backendLeagueId;
+    setLoading(true);
     const response = await fetch(
-      "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
+      "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-" +
+        stringMonth +
+        "-" +
+        stringDay +
+        "&league_id=" +
         seasonID
     );
+    console.log(stringMonth, stringDay);
     const resData = await response.json();
+    setLoading(false);
+    console.log(resData);
     return resData;
   };
 
@@ -54,8 +71,7 @@ const Matches = () => {
           <div className={classes.calendarContent}>
             <BsCalendar4Event />
             <p>
-              {stringDay.length === 1 ? "0" + day : day}/
-              {stringMonth.length === 1 ? "0" + month : month}
+              {stringDay}/{stringMonth}
             </p>
           </div>
           <button
@@ -66,7 +82,7 @@ const Matches = () => {
           </button>
         </div>
       </section>
-      <MatchesContainer />
+      {loading ? <p>Loading...</p> : <MatchesContainer />}
     </main>
   );
 };

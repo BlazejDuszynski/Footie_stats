@@ -3,9 +3,7 @@ import Home from "./Components/Pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Components/Pages/Root";
 import LeaguesRoot from "./Components/Pages/LeaguesRootLayout";
-import Matches, {
-  loader as matchesLoader,
-} from "./Components/Pages/SubNavigationItems/Matches/Matches";
+import Matches from "./Components/Pages/SubNavigationItems/Matches/Matches";
 import Table from "./Components/Pages/SubNavigationItems/Table/Table";
 import Statistics from "./Components/Pages/SubNavigationItems/Statistics/Statistics";
 import LeagueProvider from "./Components/Store/LeagueProvider";
@@ -25,7 +23,7 @@ const router = createBrowserRouter([
           {
             path: ":leagueId/matches",
             element: <Matches />,
-            loader: (params) => matchesLoader(params, leaguesIDs),
+            // loader: (params) => matchesLoader(params, leaguesIDs),
           },
           { path: ":leagueId/table", element: <Table /> },
           { path: ":leagueId/statistics", element: <Statistics /> },

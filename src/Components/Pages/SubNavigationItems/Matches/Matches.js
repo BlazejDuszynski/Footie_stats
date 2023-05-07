@@ -1,14 +1,15 @@
-import React, { useContext, useState } from "react";
-import { useLoaderData } from "react-router";
+import React, { useContext, useEffect } from "react";
 import classes from "./Matches.module.css";
 import { BsCalendar4Event } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import MatchesContainer from "./MatchesContainer";
 import DateContext from "../../../Store/date-context";
+import leaguesIDs from "../leaguesIDs";
+import { useParams } from "react-router";
 
 const Matches = () => {
-  const matches = useLoaderData();
   const dateCtx = useContext(DateContext);
+  const { leagueId } = useParams();
 
   const nextDayHandler = () => {
     dateCtx.changeDate(1);
@@ -23,6 +24,22 @@ const Matches = () => {
 
   const day = dateCtx.date.getDate();
   const stringDay = day.toString();
+
+  const fetchMatchesData = async ({ leagueId }, leaguesIDs) => {
+    const seasonID = leaguesIDs.find(
+      ({ paramsId }) => paramsId === leagueId
+    )?.backendLeagueId;
+    const response = await fetch(
+      "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
+        seasonID
+    );
+    const resData = await response.json();
+    return resData;
+  };
+
+  useEffect(() => {
+    fetchMatchesData({ leagueId }, leaguesIDs);
+  }, [dateCtx.date]);
 
   return (
     <main className={classes.matchesSection}>
@@ -56,14 +73,14 @@ const Matches = () => {
 
 export default Matches;
 
-export async function loader({ params }, leaguesIDs) {
-  const seasonID = leaguesIDs.find(
-    ({ paramsId }) => paramsId === params.leagueId
-  )?.backendLeagueId;
-  const response = await fetch(
-    "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
-      seasonID
-  );
-  const resData = await response.json();
-  return resData;
-}
+// export async function loader({ params }, leaguesIDs) {
+//   const seasonID = leaguesIDs.find(
+//     ({ paramsId }) => paramsId === params.leagueId
+//   )?.backendLeagueId;
+//   const response = await fetch(
+//     "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-04-30&league_id=" +
+//       seasonID
+//   );
+//   const resData = await response.json();
+//   return resData;
+// }

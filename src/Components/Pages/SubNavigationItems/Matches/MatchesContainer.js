@@ -20,22 +20,32 @@ const MatchesContainer = ({ matches }) => {
           {matches.map((match) => {
             const logo = match.group_name + " logo";
             let matchStatusClass;
+            let matchStatusName;
             switch (match.status_name) {
               case "Finished":
                 matchStatusClass =
                   classes.statusFinished + " " + classes.matchStatus;
+                matchStatusName = match.status_name;
                 break;
               case "Postponed":
                 matchStatusClass =
                   classes.statusPostponed + " " + classes.matchStatus;
+                matchStatusName = match.status_name;
                 break;
               case "Inplay":
                 matchStatusClass =
                   classes.statusNotFinished + " " + classes.matchStatus;
+                matchStatusName = "In play";
                 break;
               case "Notstarted":
                 matchStatusClass =
                   classes.statusNotFinished + " " + classes.matchStatus;
+                matchStatusName = "Not started";
+                break;
+              case null:
+                matchStatusClass =
+                  classes.statusNotFinished + " " + classes.matchStatus;
+                matchStatusName = "In play";
                 break;
             }
             return (
@@ -48,7 +58,7 @@ const MatchesContainer = ({ matches }) => {
                     src={match.league.country_flag}
                   />
                 </div>
-                <p className={matchStatusClass}>{match.status_name}</p>
+                <p className={matchStatusClass}>{matchStatusName}</p>
                 <MatchesItem />
               </div>
             );

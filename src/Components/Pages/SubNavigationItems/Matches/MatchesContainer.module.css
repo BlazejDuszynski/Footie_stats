@@ -70,9 +70,10 @@
 
 .leagueSummaryContainer {
     display: flex;
+    align-items: center;
     gap: 15px;
 }
 
 .leagueFlagImage {
-    height: 1.3em;
+    height: 15px;
 }

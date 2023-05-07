@@ -18,7 +18,40 @@ const MatchesContainer = ({ matches }) => {
       ) : (
         <section className={classes.matchesContainer}>
           {matches.map((match) => {
-            return <MatchesItem />;
+            const logo = match.group_name + " logo";
+            let matchStatusClass;
+            switch (match.status_name) {
+              case "Finished":
+                matchStatusClass =
+                  classes.statusFinished + " " + classes.matchStatus;
+                break;
+              case "Postponed":
+                matchStatusClass =
+                  classes.statusPostponed + " " + classes.matchStatus;
+                break;
+              case "Inplay":
+                matchStatusClass =
+                  classes.statusNotFinished + " " + classes.matchStatus;
+                break;
+              case "Notstarted":
+                matchStatusClass =
+                  classes.statusNotFinished + " " + classes.matchStatus;
+                break;
+            }
+            return (
+              <div className={classes.matchContainer}>
+                <div className={classes.leagueSummaryContainer}>
+                  <p>Matchday {match.round_name}</p>
+                  <img
+                    className={classes.leagueFlagImage}
+                    alt={logo}
+                    src={match.league.country_flag}
+                  />
+                </div>
+                <p className={matchStatusClass}>{match.status_name}</p>
+                <MatchesItem />
+              </div>
+            );
           })}
         </section>
       )}

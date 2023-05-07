@@ -22,3 +22,57 @@
     height: 400px;
     width: auto;
 }
+
+.matchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 0 30px;
+    color: var(--lightViolet);
+}
+
+.matchStatus {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.matchStatus::before {
+    content: "";
+    height: 2px;
+    width: 100px;
+    border-radius: 2px;
+}
+
+.statusFinished {
+    color: #76d476;
+}
+
+.statusPostponed {
+    color: rgb(252, 81, 81);
+}
+
+.statusNotFinished {
+    color: var(--orangeFont);
+}
+
+.statusFinished::before {
+    background-color: #76d476;
+}
+
+.statusPostponed::before {
+    background-color: rgb(252, 81, 81);
+}
+
+.statusNotFinished::before {
+    background-color: var(--orangeFont);
+}
+
+.leagueSummaryContainer {
+    display: flex;
+    gap: 15px;
+}
+
+.leagueFlagImage {
+    height: 1.3em;
+}

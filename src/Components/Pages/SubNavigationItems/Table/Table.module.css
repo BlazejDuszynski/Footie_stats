@@ -4,3 +4,11 @@
     width: 100%;
     padding: 0 15%;
 }
+
+.tableSectionHeader {
+    padding: 10vh 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+}

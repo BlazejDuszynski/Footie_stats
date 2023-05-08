@@ -13,6 +13,13 @@ const Matches = () => {
   const { leagueId } = useParams();
   const [loading, setLoading] = useState(true);
   const [responseData, setResponseData] = useState({});
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "72cff716cdmshc41548afe41ba07p18c95cjsn9521d9d88440",
+      "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+    },
+  };
 
   const nextDayHandler = () => {
     dateCtx.changeDate(1);
@@ -37,22 +44,25 @@ const Matches = () => {
   }
 
   const fetchMatchesData = async ({ leagueId }, leaguesIDs) => {
-    const seasonID = leaguesIDs.find(
+    const leagueID = leaguesIDs.find(
       ({ paramsId }) => paramsId === leagueId
     )?.backendLeagueId;
     setLoading(true);
     const response = await fetch(
-      "https://api.soccersapi.com/v2.2/fixtures/?user=bduszynski92&token=3742a318b07fbd2d2c34fe25d93b3bbf&t=schedule&d=2023-" +
+      "https://api-football-v1.p.rapidapi.com/v3/fixtures?date=2023-" +
         stringMonth +
         "-" +
         stringDay +
-        "&league_id=" +
-        seasonID
+        "&league=" +
+        leagueID +
+        "&season=2022",
+      options
     );
     console.log(stringMonth, stringDay);
     const resData = await response.json();
+    console.log(resData);
     setLoading(false);
-    setResponseData(resData.data);
+    setResponseData(resData.response);
   };
 
   useEffect(() => {

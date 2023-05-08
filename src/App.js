@@ -1,4 +1,3 @@
-import "./App.css";
 import Home from "./Components/Pages/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Components/Pages/Root";
@@ -7,7 +6,6 @@ import Matches from "./Components/Pages/SubNavigationItems/Matches/Matches";
 import Table from "./Components/Pages/SubNavigationItems/Table/Table";
 import Statistics from "./Components/Pages/SubNavigationItems/Statistics/Statistics";
 import LeagueProvider from "./Components/Store/LeagueProvider";
-import leaguesIDs from "./Components/Pages/SubNavigationItems/leaguesIDs";
 import DateProvider from "./Components/Store/DateProvider";
 
 const router = createBrowserRouter([

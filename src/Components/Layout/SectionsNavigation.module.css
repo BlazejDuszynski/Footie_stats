@@ -1,6 +1,6 @@
 .asideNavigation {
     width: 20vw;
-    height: 95vh;
+    min-height: 95vh;
     display: flex;
     flex-direction: column;
     background-color: var(--subpageNavbar);

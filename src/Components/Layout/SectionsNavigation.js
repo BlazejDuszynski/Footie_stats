@@ -8,6 +8,7 @@ import { RiListOrdered } from "react-icons/ri";
 
 const SectionsNavigation = () => {
   const { league } = useContext(LeagueContext);
+  console.log(league);
 
   return (
     <aside className={classes.asideNavigation}>
@@ -26,10 +27,10 @@ const SectionsNavigation = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-        isActive
-        ? classes.asideNavigationItemLinkActive
-        : classes.asideNavigationItemLink
-    }
+          isActive
+            ? classes.asideNavigationItemLinkActive
+            : classes.asideNavigationItemLink
+        }
         to={`/${league}/table`}
       >
         <p>
@@ -39,10 +40,10 @@ const SectionsNavigation = () => {
       </NavLink>
       <NavLink
         className={({ isActive }) =>
-        isActive
-        ? classes.asideNavigationItemLinkActive
-        : classes.asideNavigationItemLink
-    }
+          isActive
+            ? classes.asideNavigationItemLinkActive
+            : classes.asideNavigationItemLink
+        }
         to={`/${league}/statistics`}
       >
         <p>

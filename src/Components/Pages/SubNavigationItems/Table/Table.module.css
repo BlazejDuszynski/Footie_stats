@@ -1,3 +1,6 @@
 .tableSection {
     background-color: var(--purpleBackground);
+    color: var(--lighterViolet);
+    width: 100%;
+    padding: 0 15%;
 }

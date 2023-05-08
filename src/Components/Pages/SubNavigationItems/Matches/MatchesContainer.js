@@ -6,7 +6,7 @@ const MatchesContainer = ({ matches }) => {
   console.log(matches);
   return (
     <Fragment>
-      {matches === undefined ? (
+      {matches.length === 0 ? (
         <div className={classes.noItemsContainer}>
           <img
             alt="A person who cannot find anything in the box"
@@ -18,19 +18,19 @@ const MatchesContainer = ({ matches }) => {
       ) : (
         <section className={classes.matchesContainer}>
           {matches.map((match) => {
-            const logo = match.group_name + " logo";
+            const logo = match.league.name + " logo";
             let matchStatusClass;
             let matchStatusName;
-            switch (match.status_name) {
-              case "Finished":
+            switch (match.fixture.status.short) {
+              case "FT":
                 matchStatusClass =
                   classes.statusFinished + " " + classes.matchStatus;
-                matchStatusName = match.status_name;
+                matchStatusName = "Finished";
                 break;
               case "Postponed":
                 matchStatusClass =
                   classes.statusPostponed + " " + classes.matchStatus;
-                matchStatusName = match.status_name;
+                matchStatusName = match.fixture.status.long;
                 break;
               case "Inplay":
                 matchStatusClass =
@@ -51,11 +51,11 @@ const MatchesContainer = ({ matches }) => {
             return (
               <div className={classes.matchContainer}>
                 <div className={classes.leagueSummaryContainer}>
-                  <p>Matchday {match.round_name}</p>
+                  <p>{match.league.round}</p>
                   <img
                     className={classes.leagueFlagImage}
                     alt={logo}
-                    src={match.league.country_flag}
+                    src={match.league.flag}
                   />
                 </div>
                 <p className={matchStatusClass}>{matchStatusName}</p>
@@ -64,12 +64,12 @@ const MatchesContainer = ({ matches }) => {
                   matchStatusName={matchStatusName}
                   homeTeamAbbr={match.teams.home.short_code}
                   homeTeamName={match.teams.home.name}
-                  homeTeamLogo={match.teams.home.img}
-                  homeTeamScore={match.scores.home_score}
+                  homeTeamLogo={match.teams.home.logo}
+                  homeTeamScore={match.goals.home}
                   awayTeamAbbr={match.teams.away.short_code}
                   awayTeamName={match.teams.away.name}
-                  awayTeamLogo={match.teams.away.img}
-                  awayTeamScore={match.scores.away_score}
+                  awayTeamLogo={match.teams.away.logo}
+                  awayTeamScore={match.goals.away}
                 />
               </div>
             );

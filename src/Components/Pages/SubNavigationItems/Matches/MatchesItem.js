@@ -5,7 +5,7 @@ const MatchesItem = (props) => {
   return (
     <div className={classes.matchesItem}>
       <div title={props.homeTeamName} className={classes.teamInfo}>
-        <p className={classes.homeTeamAbbr}>{props.homeTeamAbbr}</p>
+        <p className={classes.homeTeamAbbr}>{props.homeTeamName}</p>
         <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
       </div>
       {props.matchStatusName === "Finished" ? (
@@ -20,7 +20,7 @@ const MatchesItem = (props) => {
 
       <div title={props.awayTeamName} className={classes.teamInfo}>
         <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
-        <p className={classes.awayTeamAbbr}>{props.awayTeamAbbr}</p>
+        <p className={classes.awayTeamAbbr}>{props.awayTeamName}</p>
       </div>
     </div>
   );

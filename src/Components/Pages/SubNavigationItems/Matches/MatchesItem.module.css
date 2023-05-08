@@ -10,9 +10,6 @@
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
-}
-
-.matchesItem:hover {
     -webkit-box-shadow: 0px 0px 10px 5px rgba(50, 47, 100, 0.5);
     -moz-box-shadow: 0px 0px 10px 5px rgba(50, 47, 100, 0.5);
     box-shadow: 0px 0px 10px 5px rgba(50, 47, 100, 0.5);

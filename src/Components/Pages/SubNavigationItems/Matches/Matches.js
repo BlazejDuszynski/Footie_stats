@@ -43,7 +43,7 @@ const Matches = () => {
     stringDay = "0" + stringDay;
   }
 
-  const fetchMatchesData = async ({ leagueId }, leaguesIDs) => {
+  const fetchMatchesData = async () => {
     const leagueID = leaguesIDs.find(
       ({ paramsId }) => paramsId === leagueId
     )?.backendLeagueId;
@@ -66,7 +66,7 @@ const Matches = () => {
   };
 
   useEffect(() => {
-    fetchMatchesData({ leagueId }, leaguesIDs);
+    fetchMatchesData();
   }, [dateCtx.date, leagueId]);
 
   return (

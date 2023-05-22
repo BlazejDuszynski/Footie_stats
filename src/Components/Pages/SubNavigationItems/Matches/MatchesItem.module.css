@@ -15,6 +15,10 @@
     transition: all 0.15s ease-in-out;
 }
 
+.teamAbbr {
+    width: 50px;
+}
+
 .matchesItem:hover {
     -webkit-box-shadow: 0px 0px 10px 10px rgba(50, 47, 100, 0.5);
     -moz-box-shadow: 0px 0px 10px 10px rgba(50, 47, 100, 0.5);

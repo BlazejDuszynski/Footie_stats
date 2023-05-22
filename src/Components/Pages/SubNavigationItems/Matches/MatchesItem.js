@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import classes from "./MatchesItem.module.css";
+import { Skeleton } from "@mui/material";
 
 const MatchesItem = (props) => {
   const [loading, setLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [homeTeamShortName, setHomeTeamShortName] = useState();
   const [awayTeamShortName, setAwayTeamShortName] = useState();
 
@@ -38,11 +40,17 @@ const MatchesItem = (props) => {
     getTeamsShortNames();
   }, [props]);
 
+  const openMatchesItemModalHandler = () => {
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className={classes.matchesItem}>
+    <div className={classes.matchesItem} onClick={openMatchesItemModalHandler}>
       <div title={props.homeTeamName} className={classes.teamInfo}>
-        {!loading && (
-          <p className={classes.homeTeamAbbr}>{homeTeamShortName}</p>
+        {loading ? (
+          <Skeleton animation="wave" width="50px" variant="text" />
+        ) : (
+          <p className={classes.teamAbbr}>{homeTeamShortName}</p>
         )}
         <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
       </div>
@@ -58,8 +66,10 @@ const MatchesItem = (props) => {
 
       <div title={props.awayTeamName} className={classes.teamInfo}>
         <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
-        {!loading && (
-          <p className={classes.awayTeamAbbr}>{awayTeamShortName}</p>
+        {loading ? (
+          <Skeleton animation="wave" width="50px" variant="text" />
+        ) : (
+          <p className={classes.teamAbbr}>{awayTeamShortName}</p>
         )}
       </div>
     </div>

@@ -32,12 +32,12 @@ const MatchesContainer = ({ matches }) => {
                   classes.statusPostponed + " " + classes.matchStatus;
                 matchStatusName = match.fixture.status.long;
                 break;
-              case "Inplay":
+              case "1H":
                 matchStatusClass =
                   classes.statusNotFinished + " " + classes.matchStatus;
                 matchStatusName = "In play";
                 break;
-              case "Notstarted":
+              case "NS":
                 matchStatusClass =
                   classes.statusNotFinished + " " + classes.matchStatus;
                 matchStatusName = "Not started";
@@ -65,12 +65,12 @@ const MatchesContainer = ({ matches }) => {
                   homeTeamAbbr={match.teams.home.short_code}
                   homeTeamName={match.teams.home.name}
                   homeTeamLogo={match.teams.home.logo}
-                  homeTeamId = {match.teams.home.id}
+                  homeTeamId={match.teams.home.id}
                   homeTeamScore={match.goals.home}
                   awayTeamAbbr={match.teams.away.short_code}
                   awayTeamName={match.teams.away.name}
                   awayTeamLogo={match.teams.away.logo}
-                  awayTeamId = {match.teams.away.id}
+                  awayTeamId={match.teams.away.id}
                   awayTeamScore={match.goals.away}
                 />
               </div>

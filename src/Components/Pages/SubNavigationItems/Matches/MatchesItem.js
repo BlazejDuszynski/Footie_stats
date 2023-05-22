@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 
 const MatchesItem = (props) => {
   const [loading, setLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [homeTeamShortName, setHomeTeamShortName] = useState();
   const [awayTeamShortName, setAwayTeamShortName] = useState();
 
@@ -30,7 +30,6 @@ const MatchesItem = (props) => {
     );
     const homeTeamData = await homeTeamResponse.json();
     const awayTeamData = await awayTeamResponse.json();
-    console.log(homeTeamData, awayTeamData);
     setHomeTeamShortName(homeTeamData.response[0].team.code);
     setAwayTeamShortName(awayTeamData.response[0].team.code);
     setLoading(false);
@@ -48,7 +47,7 @@ const MatchesItem = (props) => {
     <div className={classes.matchesItem} onClick={openMatchesItemModalHandler}>
       <div title={props.homeTeamName} className={classes.teamInfo}>
         {loading ? (
-          <Skeleton animation="wave" width="50px" variant="text" />
+          <Skeleton animation="wave" width={50} height={35} variant="text" />
         ) : (
           <p className={classes.teamAbbr}>{homeTeamShortName}</p>
         )}
@@ -67,7 +66,7 @@ const MatchesItem = (props) => {
       <div title={props.awayTeamName} className={classes.teamInfo}>
         <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
         {loading ? (
-          <Skeleton animation="wave" width="50px" variant="text" />
+          <Skeleton animation="wave" width={50} height={35} variant="text" />
         ) : (
           <p className={classes.teamAbbr}>{awayTeamShortName}</p>
         )}

@@ -58,9 +58,7 @@ const Matches = () => {
         "&season=2022",
       options
     );
-    console.log(stringMonth, stringDay);
     const resData = await response.json();
-    console.log(resData);
     setLoading(false);
     setResponseData(resData.response);
   };

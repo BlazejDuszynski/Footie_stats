@@ -49,7 +49,7 @@ const MatchesItem = (props) => {
         {loading ? (
           <Skeleton animation="wave" width={50} height={35} variant="text" />
         ) : (
-          <p className={classes.teamAbbr}>{homeTeamShortName}</p>
+          <p className={classes.homeTeamAbbr}>{homeTeamShortName}</p>
         )}
         <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
       </div>
@@ -60,7 +60,7 @@ const MatchesItem = (props) => {
           <p>{props.awayTeamScore}</p>
         </div>
       ) : (
-        <p className={classes.matchResult}>VS</p>
+<p className={classes.matchResult}>VS</p> 
       )}
 
       <div title={props.awayTeamName} className={classes.teamInfo}>
@@ -68,7 +68,7 @@ const MatchesItem = (props) => {
         {loading ? (
           <Skeleton animation="wave" width={50} height={35} variant="text" />
         ) : (
-          <p className={classes.teamAbbr}>{awayTeamShortName}</p>
+          <p className={classes.awayTeamAbbr}>{awayTeamShortName}</p>
         )}
       </div>
     </div>

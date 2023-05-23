@@ -15,8 +15,13 @@
     transition: all 0.15s ease-in-out;
 }
 
-.teamAbbr {
+.homeTeamAbbr {
     width: 50px;
+}
+
+.awayTeamAbbr {
+    width: 50px;
+    text-align: end;
 }
 
 .matchesItem:hover {
@@ -37,7 +42,7 @@
 }
 
 .matchResult {
-    font-size: 1.4em;
+    font-size: 1.1em;
     display: flex;
     gap: 5px;
 }

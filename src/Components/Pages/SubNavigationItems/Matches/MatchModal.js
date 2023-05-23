@@ -12,6 +12,9 @@ const MatchModal = (props) => {
   )?.name;
   const matchDate = new Date(props.date);
   const formattedDate = matchDate.toLocaleDateString("pl-PL");
+  const formattedTime = matchDate.toLocaleTimeString("pl-PL", {
+    timeStyle: "short",
+  });
   return (
     <Fragment>
       <div className={classes.backdrop} onClick={props.onCloseModal}></div>
@@ -48,10 +51,14 @@ const MatchModal = (props) => {
             </div>
             <div className={classes.matchSummary}>
               <p className={classes.matchDate}>{formattedDate}</p>
-              <p className={classes.matchScore}>
-                <span>{props.homeTeamScore}</span> -{" "}
-                <span>{props.awayTeamScore}</span>
-              </p>
+              {props.matchStatus === "Finished" ? (
+                <p className={classes.matchScore}>
+                  <span>{props.homeTeamScore}</span> -{" "}
+                  <span>{props.awayTeamScore}</span>
+                </p>
+              ) : (
+                <p>{formattedTime}</p>
+              )}
               <p className={classes.matchStatus}>{props.matchStatus}</p>
             </div>
             <div className={classes.teamsSection__team}>

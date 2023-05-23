@@ -5,6 +5,7 @@ const MatchModal = (props) => {
   return (
     <Fragment>
       <div className={classes.backdrop} onClick={props.onCloseModal}></div>
+      <div className={classes.matchModal}></div>
     </Fragment>
   );
 };

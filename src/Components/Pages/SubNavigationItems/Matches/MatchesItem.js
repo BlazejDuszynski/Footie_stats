@@ -50,6 +50,9 @@ const MatchesItem = (props) => {
 
   return (
     <Fragment>
+      {isModalOpen && (
+        <MatchModal onCloseModal={closeMatchesItemModalHandler} />
+      )}
       <div
         className={classes.matchesItem}
         onClick={openMatchesItemModalHandler}
@@ -81,7 +84,6 @@ const MatchesItem = (props) => {
           )}
         </div>
       </div>
-      {isModalOpen && <MatchModal onCloseModal={closeMatchesItemModalHandler}/>}
     </Fragment>
   );
 };

@@ -11,12 +11,56 @@
     animation: backdropShowUp 0.2s ease-in;
 }
 
+.matchModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+    width: 30%;
+    background-color: whitesmoke;
+    animation: modalShowUp 0.2s ease-in;
+}
+
 @keyframes backdropShowUp {
     0% {
         opacity: 0;
     }
 
     100% {
+        opacity: 1;
+    }
+}
+
+@keyframes modalShowUp {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 70vh;
+        width: 30%;
+    }
+
+    100% {
         opacity: 100%;
+        transform: scale(1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 70vh;
+        width: 30%;
     }
 }

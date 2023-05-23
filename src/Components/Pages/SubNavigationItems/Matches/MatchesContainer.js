@@ -65,6 +65,7 @@ const MatchesContainer = ({ matches }) => {
                   gameweek={matchdayNumber}
                   matches={matches}
                   matchStatusName={matchStatusName}
+                  date={match.fixture.date}
                   homeTeamAbbr={match.teams.home.short_code}
                   homeTeamName={match.teams.home.name}
                   homeTeamLogo={match.teams.home.logo}

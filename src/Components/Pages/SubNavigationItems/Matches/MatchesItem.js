@@ -53,9 +53,18 @@ const MatchesItem = (props) => {
       {isModalOpen && (
         <MatchModal
           onCloseModal={closeMatchesItemModalHandler}
-          awayTeamName={props.awayTeamName}
-          homeTeamName={props.homeTeamName}
+          date={props.date}
           gameweek={props.gameweek}
+          matchStatus={props.matchStatusName}
+          homeTeamName={props.homeTeamName}
+          homeTeamLogo={props.homeTeamLogo}
+          homeTeamId={props.homeTeamId}
+          homeTeamScore={props.homeTeamScore}
+          awayTeamName={props.awayTeamName}
+          awayTeamAbbr={props.awayTeamAbbr}
+          awayTeamLogo={props.awayTeamLogo}
+          awayTeamId={props.awayTeamId}
+          awayTeamScore={props.awayTeamScore}
         />
       )}
       <div

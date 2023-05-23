@@ -10,7 +10,8 @@ const MatchModal = (props) => {
   const leagueName = leaguesIDs.find(
     ({ paramsId }) => paramsId === leagueId
   )?.name;
-  console.log(props.awayTeamName);
+  const matchDate = new Date(props.date);
+  const formattedDate = matchDate.toLocaleDateString("pl-PL");
   return (
     <Fragment>
       <div className={classes.backdrop} onClick={props.onCloseModal}></div>
@@ -35,6 +36,34 @@ const MatchModal = (props) => {
               {props.homeTeamName} - {props.awayTeamName}
             </span>
           </header>
+          <section className={classes.teamsSection}>
+            <div className={classes.teamsSection__team}>
+              <div className={classes.teamLogoContainer}>
+                <img
+                  src={props.homeTeamLogo}
+                  className={classes.teamLogoImage}
+                ></img>
+              </div>
+              <p className={classes.teamName}>{props.homeTeamName}</p>
+            </div>
+            <div className={classes.matchSummary}>
+              <p className={classes.matchDate}>{formattedDate}</p>
+              <p className={classes.matchScore}>
+                <span>{props.homeTeamScore}</span> -{" "}
+                <span>{props.awayTeamScore}</span>
+              </p>
+              <p className={classes.matchStatus}>{props.matchStatus}</p>
+            </div>
+            <div className={classes.teamsSection__team}>
+              <div className={classes.teamLogoContainer}>
+                <img
+                  className={classes.teamLogoImage}
+                  src={props.awayTeamLogo}
+                ></img>
+              </div>
+              <p className={classes.teamName}>{props.awayTeamName}</p>
+            </div>
+          </section>
         </main>
       </div>
     </Fragment>

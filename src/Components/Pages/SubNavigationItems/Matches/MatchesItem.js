@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import classes from "./MatchesItem.module.css";
 import { Skeleton } from "@mui/material";
+import MatchModal from "./MatchModal";
 
 const MatchesItem = (props) => {
   const [loading, setLoading] = useState(true);
@@ -43,35 +44,45 @@ const MatchesItem = (props) => {
     setIsModalOpen(true);
   };
 
-  return (
-    <div className={classes.matchesItem} onClick={openMatchesItemModalHandler}>
-      <div title={props.homeTeamName} className={classes.teamInfo}>
-        {loading ? (
-          <Skeleton animation="wave" width={50} height={35} variant="text" />
-        ) : (
-          <p className={classes.homeTeamAbbr}>{homeTeamShortName}</p>
-        )}
-        <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
-      </div>
-      {props.matchStatusName === "Finished" ? (
-        <div className={classes.matchResult}>
-          <p>{props.homeTeamScore}</p>
-          <p>:</p>
-          <p>{props.awayTeamScore}</p>
-        </div>
-      ) : (
-<p className={classes.matchResult}>VS</p> 
-      )}
+  const closeMatchesItemModalHandler = () => {
+    setIsModalOpen(false);
+  };
 
-      <div title={props.awayTeamName} className={classes.teamInfo}>
-        <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
-        {loading ? (
-          <Skeleton animation="wave" width={50} height={35} variant="text" />
+  return (
+    <Fragment>
+      <div
+        className={classes.matchesItem}
+        onClick={openMatchesItemModalHandler}
+      >
+        <div title={props.homeTeamName} className={classes.teamInfo}>
+          {loading ? (
+            <Skeleton animation="wave" width={50} height={35} variant="text" />
+          ) : (
+            <p className={classes.homeTeamAbbr}>{homeTeamShortName}</p>
+          )}
+          <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
+        </div>
+        {props.matchStatusName === "Finished" ? (
+          <div className={classes.matchResult}>
+            <p>{props.homeTeamScore}</p>
+            <p>:</p>
+            <p>{props.awayTeamScore}</p>
+          </div>
         ) : (
-          <p className={classes.awayTeamAbbr}>{awayTeamShortName}</p>
+          <p className={classes.matchResult}>VS</p>
         )}
+
+        <div title={props.awayTeamName} className={classes.teamInfo}>
+          <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
+          {loading ? (
+            <Skeleton animation="wave" width={50} height={35} variant="text" />
+          ) : (
+            <p className={classes.awayTeamAbbr}>{awayTeamShortName}</p>
+          )}
+        </div>
       </div>
-    </div>
+      {isModalOpen && <MatchModal onCloseModal={closeMatchesItemModalHandler}/>}
+    </Fragment>
   );
 };
 

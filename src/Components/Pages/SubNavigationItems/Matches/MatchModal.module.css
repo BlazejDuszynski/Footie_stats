@@ -12,9 +12,6 @@
 }
 
 .matchModal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -23,6 +20,29 @@
     width: 40%;
     background-color: var(--subpageNavbar);
     animation: modalShowUp 0.2s ease-in;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+.topBar {
+    background-color: var(--lightViolet);
+    height: 35px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    position: relative;
+}
+
+.closeButton {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    background-color: inherit;
+    border: none;
+    font-size: 1.5em;
 }
 
 @keyframes backdropShowUp {
@@ -37,28 +57,26 @@
 
 @keyframes modalShowUp {
     0% {
-        transform: scale(0);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        opacity: 0;
+        transform: scale(0, 0);
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 70vh;
         width: 40%;
+        border-radius: 20px;
     }
 
     100% {
-        transform: scale(1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        opacity: 1;
+        transform: scale(1, 1);
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         height: 70vh;
         width: 40%;
+        border-radius: 20px;
     }
 }

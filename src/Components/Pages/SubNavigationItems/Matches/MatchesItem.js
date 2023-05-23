@@ -9,7 +9,7 @@ const MatchesItem = (props) => {
   const [homeTeamShortName, setHomeTeamShortName] = useState();
   const [awayTeamShortName, setAwayTeamShortName] = useState();
 
-  const homeTeamID = props.homeTeamId.toString();
+  const homeTeamID = props.homeTeamId;
   const awayTeamID = props.awayTeamId;
 
   const options = {

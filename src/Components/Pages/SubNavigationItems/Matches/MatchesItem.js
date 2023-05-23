@@ -51,7 +51,12 @@ const MatchesItem = (props) => {
   return (
     <Fragment>
       {isModalOpen && (
-        <MatchModal onCloseModal={closeMatchesItemModalHandler} />
+        <MatchModal
+          onCloseModal={closeMatchesItemModalHandler}
+          awayTeamName={props.awayTeamName}
+          homeTeamName={props.homeTeamName}
+          gameweek={props.gameweek}
+        />
       )}
       <div
         className={classes.matchesItem}
@@ -63,7 +68,11 @@ const MatchesItem = (props) => {
           ) : (
             <p className={classes.homeTeamAbbr}>{homeTeamShortName}</p>
           )}
-          <img className={classes.teamLogo} alt="" src={props.homeTeamLogo} />
+          <img
+            className={classes.teamLogo}
+            alt={`Logo of ${props.homeTeamName}`}
+            src={props.homeTeamLogo}
+          />
         </div>
         {props.matchStatusName === "Finished" ? (
           <div className={classes.matchResult}>
@@ -76,7 +85,11 @@ const MatchesItem = (props) => {
         )}
 
         <div title={props.awayTeamName} className={classes.teamInfo}>
-          <img className={classes.teamLogo} alt="" src={props.awayTeamLogo} />
+          <img
+            className={classes.teamLogo}
+            alt={`Logo of ${props.awayTeamName}`}
+            src={props.awayTeamLogo}
+          />
           {loading ? (
             <Skeleton animation="wave" width={50} height={35} variant="text" />
           ) : (

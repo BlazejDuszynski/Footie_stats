@@ -18,6 +18,8 @@ const MatchesContainer = ({ matches }) => {
       ) : (
         <section className={classes.matchesContainer}>
           {matches.map((match) => {
+            let lastSpaceIndex = match.league.round.lastIndexOf(" ");
+            let matchdayNumber = match.league.round.substr(lastSpaceIndex + 1);
             const logo = match.league.name + " logo";
             let matchStatusClass;
             let matchStatusName;
@@ -51,7 +53,7 @@ const MatchesContainer = ({ matches }) => {
             return (
               <div className={classes.matchContainer}>
                 <div className={classes.leagueSummaryContainer}>
-                  <p>{match.league.round}</p>
+                  <p>{`Matchday ${matchdayNumber}`}</p>
                   <img
                     className={classes.leagueFlagImage}
                     alt={logo}
@@ -60,6 +62,7 @@ const MatchesContainer = ({ matches }) => {
                 </div>
                 <p className={matchStatusClass}>{matchStatusName}</p>
                 <MatchesItem
+                  gameweek={matchdayNumber}
                   matches={matches}
                   matchStatusName={matchStatusName}
                   homeTeamAbbr={match.teams.home.short_code}

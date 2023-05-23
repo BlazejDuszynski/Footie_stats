@@ -29,8 +29,6 @@ const Matches = () => {
     dateCtx.changeDate(-1);
   };
 
-  // const year = dateCtx.date.getYear();
-
   const month = dateCtx.date.getMonth() + 1;
   let stringMonth = month.toString();
   if (stringMonth.length === 1) {

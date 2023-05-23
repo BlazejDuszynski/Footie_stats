@@ -45,6 +45,34 @@
     font-size: 1.5em;
 }
 
+.matchModalMainContent {
+    margin: 20px;
+}
+
+.matchModalHeader {
+    font-size: 0.75em;
+    font-weight: 700;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.matchModalHeader__content {
+    cursor: pointer;
+    position: relative;
+}
+
+.matchModalHeader__content:hover:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--lightViolet);
+}
+
 @keyframes backdropShowUp {
     0% {
         opacity: 0;

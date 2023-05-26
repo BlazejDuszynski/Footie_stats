@@ -1,0 +1,17 @@
+.matchDetailsHeader ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.matchDetailsHeader li {
+    cursor: pointer;
+    list-style: none;
+    padding: 5px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.matchDetailsHeader li.active {
+    border-bottom: 2px solid var(--lighterViolet);
+}

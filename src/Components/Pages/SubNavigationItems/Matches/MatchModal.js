@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 import { BsChevronRight } from "react-icons/bs";
 import { useParams } from "react-router";
 import leaguesIDs from "../leaguesIDs";
+import MatchDetails from "./MatchDetails";
 
 const MatchModal = (props) => {
   const { leagueId } = useParams();
@@ -72,6 +73,7 @@ const MatchModal = (props) => {
             </div>
           </section>
         </main>
+        <MatchDetails />
       </div>
     </Fragment>
   );

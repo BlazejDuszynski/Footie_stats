@@ -52,6 +52,7 @@ const MatchesItem = (props) => {
     <Fragment>
       {isModalOpen && (
         <MatchModal
+          matchId={props.matchId}
           onCloseModal={closeMatchesItemModalHandler}
           date={props.date}
           gameweek={props.gameweek}

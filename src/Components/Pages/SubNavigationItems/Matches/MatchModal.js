@@ -73,7 +73,7 @@ const MatchModal = (props) => {
             </div>
           </section>
         </main>
-        <MatchDetails />
+        <MatchDetails matchId={props.matchId} />
       </div>
     </Fragment>
   );

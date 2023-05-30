@@ -62,6 +62,7 @@ const MatchesContainer = ({ matches }) => {
                 </div>
                 <p className={matchStatusClass}>{matchStatusName}</p>
                 <MatchesItem
+                  matchId={match.fixture.id}
                   gameweek={matchdayNumber}
                   matches={matches}
                   matchStatusName={matchStatusName}

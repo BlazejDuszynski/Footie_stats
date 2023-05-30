@@ -1,8 +1,9 @@
 import React from "react";
 import classes from "./MatchDetails.module.css";
 import { useState } from "react";
+import Lineups from "./Lineups/Lineups";
 
-const MatchDetails = () => {
+const MatchDetails = ({ matchId }) => {
   const [activeTab, setActiveTab] = useState(1);
   const toggleActiveTab = (id) => {
     setActiveTab();
@@ -29,6 +30,8 @@ const MatchDetails = () => {
           </li>
         </ul>
       </header>
+      {activeTab === 1 && <Lineups matchId={matchId} />}
+      {/* {activeTab === 2 && <Lineups />} */}
     </div>
   );
 };

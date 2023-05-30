@@ -41,38 +41,35 @@ const Lineups = ({ matchId }) => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <section className={classes.lineupsSection}>
-          <div className={classes.teamSection}>
-            <header>Starting XI</header>
-            <ul>
-              {homeTeam.startXI.map((item) => {
-                return (
-                  <LineupsItem
-                    playerNumber={item.player.number}
-                    playerName={item.player.name}
-                  />
-                );
-              })}
-            </ul>
-            <header>Substitutions</header>
-            <ul></ul>
-          </div>
-          <div className={classes.teamSection}>
-            <header>Starting XI</header>
-            <ul>
-              {awayTeam.startXI.map((item) => {
-                return (
-                  <LineupsItem
-                    playerNumber={item.player.number}
-                    playerName={item.player.name}
-                  />
-                );
-              })}
-            </ul>
-            <header>Substitutions</header>
-            <ul></ul>
-          </div>
-        </section>
+        <div>
+          <header className={classes.lineupsHeader}>Starting XI</header>
+          <section className={classes.lineupsSection}>
+            <div className={classes.teamSection}>
+              <ul>
+                {homeTeam.startXI.map((item) => {
+                  return (
+                    <LineupsItem
+                      playerNumber={item.player.number}
+                      playerName={item.player.name}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+            <div className={classes.teamSection}>
+              <ul>
+                {awayTeam.startXI.map((item) => {
+                  return (
+                    <LineupsItem
+                      playerNumber={item.player.number}
+                      playerName={item.player.name}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+        </div>
       )}
     </Fragment>
   );

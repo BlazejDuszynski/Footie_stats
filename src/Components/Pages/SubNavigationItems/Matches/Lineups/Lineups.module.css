@@ -1,8 +1,22 @@
 .lineupsSection {
-    margin: 20px;
-    padding: 20px 40px;
+    /* margin: 20px; */
+    padding: 0px 80px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10vw;
     text-align: center;
+}
+
+/* 
+.teamSection {
+    display: flex;
+    flex-direction: row-reverse;
+} */
+
+.lineupsHeader {
+    margin: 20px 40px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--purpleBackground);
 }

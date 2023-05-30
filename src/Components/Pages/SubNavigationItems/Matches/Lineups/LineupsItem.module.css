@@ -9,3 +9,7 @@
 .lineupsItem__number {
     min-width: 20px;
 }
+
+/* .lineupsItem:nth-child(2) {
+    flex-direction: row-reverse;
+} */

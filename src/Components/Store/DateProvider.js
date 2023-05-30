@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DateContext from "./date-context";
 
 const DateProvider = ({ children }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date("2023-05-28"));
 
   const changeDateHandler = (offset) => {
     const newDate = new Date(selectedDate);

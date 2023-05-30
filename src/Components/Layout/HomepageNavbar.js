@@ -7,8 +7,6 @@ import { SiPremierleague } from "react-icons/si";
 
 const HomepageNavbar = () => {
   const location = useLocation();
-  console.log(location);
-
   const navbarClass =
     location.pathname === "/" ? classes.homepageNavbar : classes.leagueNavbar;
 

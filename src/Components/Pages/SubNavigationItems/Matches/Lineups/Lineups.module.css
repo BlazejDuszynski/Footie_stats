@@ -7,16 +7,18 @@
     text-align: center;
 }
 
-/* 
-.teamSection {
-    display: flex;
-    flex-direction: row-reverse;
-} */
-
 .lineupsHeader {
     margin: 20px 40px;
     padding: 10px;
     border-radius: 10px;
     text-align: center;
     background-color: var(--purpleBackground);
+}
+
+.lineupsContainer {
+    margin-bottom: 20px;
+}
+
+.coach{
+    text-align: start;
 }

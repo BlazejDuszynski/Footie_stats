@@ -41,7 +41,7 @@ const Lineups = ({ matchId }) => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div className={classes.lineupsContainer}>
           <header className={classes.lineupsHeader}>Starting XI</header>
           <section className={classes.lineupsSection}>
             <div className={classes.teamSection}>
@@ -67,6 +67,44 @@ const Lineups = ({ matchId }) => {
                   );
                 })}
               </ul>
+            </div>
+          </section>
+          <header className={classes.lineupsHeader}>Substitutions</header>
+          <section className={classes.lineupsSection}>
+            <div className={classes.teamSection}>
+              <ul>
+                {homeTeam.substitutes.map((item) => {
+                  return (
+                    <LineupsItem
+                      playerNumber={item.player.number}
+                      playerName={item.player.name}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+            <div className={classes.teamSection}>
+              <ul>
+                {awayTeam.substitutes.map((item) => {
+                  return (
+                    <LineupsItem
+                      playerNumber={item.player.number}
+                      playerName={item.player.name}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </section>
+          <header className={classes.lineupsHeader}>Coaches</header>
+          <section className={classes.lineupsSection}>
+            <div className={classes.teamSection}>
+              <div>
+                <p className={classes.coach}>{homeTeam.coach.name}</p>
+              </div>
+            </div>
+            <div className={classes.teamSection}>
+              <p className={classes.coach}>{awayTeam.coach.name}</p>
             </div>
           </section>
         </div>

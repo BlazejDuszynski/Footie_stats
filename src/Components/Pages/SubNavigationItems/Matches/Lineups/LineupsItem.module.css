@@ -1,0 +1,11 @@
+.lineupsItem {
+    list-style: none;
+    text-align: start;
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.lineupsItem__number {
+    min-width: 20px;
+}

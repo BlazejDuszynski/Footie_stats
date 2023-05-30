@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Fragment } from "react";
+import classes from "./Lineups.module.css";
+import LineupsItem from "./LineupsItem";
 
 const Lineups = ({ matchId }) => {
+  const [loading, isLoading] = useState(true);
+  const [matchData, setMatchData] = useState(undefined);
+  const [homeTeam, setHomeTeam] = useState(null);
+  const [awayTeam, setAwayTeam] = useState(null);
   const options = {
     method: "GET",
     headers: {
@@ -10,19 +16,66 @@ const Lineups = ({ matchId }) => {
   };
 
   const fetchLinupsData = async () => {
+    isLoading(true);
     const response = await fetch(
       "https://api-football-v1.p.rapidapi.com/v3/fixtures?id=" + matchId,
       options
     );
-    const result = await response.json();
-    console.log(result);
+    const data = await response.json();
+    setHomeTeam(data.response[0].lineups[0]);
+    setAwayTeam(data.response[0].lineups[1]);
+    setMatchData(data.response);
+    isLoading(false);
   };
 
   useEffect(() => {
     fetchLinupsData();
   }, [matchId]);
 
-  return <div>Lineups</div>;
+  console.log(matchData);
+  console.log(homeTeam);
+  console.log(awayTeam);
+
+  return (
+    <Fragment>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <section className={classes.lineupsSection}>
+          <div className={classes.teamSection}>
+            <header>Starting XI</header>
+            <ul>
+              {homeTeam.startXI.map((item) => {
+                return (
+                  <LineupsItem
+                    playerNumber={item.player.number}
+                    playerName={item.player.name}
+                  />
+                );
+              })}
+            </ul>
+            <header>Substitutions</header>
+            <ul></ul>
+          </div>
+          <div className={classes.teamSection}>
+            <header>Starting XI</header>
+            <ul>
+              {awayTeam.startXI.map((item) => {
+                return (
+                  <LineupsItem
+                    playerNumber={item.player.number}
+                    playerName={item.player.name}
+                  />
+                );
+              })}
+            </ul>
+            <header>Substitutions</header>
+            <ul></ul>
+          </div>
+        </section>
+      )}
+    </Fragment>
+  );
 };
 
 export default Lineups;

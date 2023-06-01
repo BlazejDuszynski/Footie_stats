@@ -37,11 +37,11 @@ const Lineups = ({ matchId }) => {
   console.log(awayTeam);
 
   return (
-    <Fragment>
+    <div className={classes.lineupsContainer}>
       {loading ? (
-        <p>Loading...</p>
+        <div className={classes.spinner}></div>
       ) : (
-        <div className={classes.lineupsContainer}>
+        <Fragment>
           <header className={classes.lineupsHeader}>Starting XI</header>
           <section className={classes.lineupsSection}>
             <div className={classes.teamSection}>
@@ -107,9 +107,9 @@ const Lineups = ({ matchId }) => {
               <p className={classes.coach}>{awayTeam.coach.name}</p>
             </div>
           </section>
-        </div>
+        </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 };
 

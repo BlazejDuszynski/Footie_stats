@@ -10,10 +10,14 @@
     padding: 5px;
     text-align: center;
     min-width: 80px;
-    /* transition: all 0.2s ease-in-out; */
 }
 
 .matchDetailsHeader li.active {
-    /* transition: all 2s linear; */
     border-bottom: 2px solid var(--lighterViolet);
+}
+
+.matchDetailsContainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }

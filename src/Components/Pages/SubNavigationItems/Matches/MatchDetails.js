@@ -9,7 +9,7 @@ const MatchDetails = ({ matchId }) => {
     setActiveTab();
   };
   return (
-    <div>
+    <div className={classes.matchDetailsContainer}>
       <header className={classes.matchDetailsHeader}>
         <ul>
           <li

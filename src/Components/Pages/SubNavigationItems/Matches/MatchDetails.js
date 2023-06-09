@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./MatchDetails.module.css";
 import { useState } from "react";
 import Lineups from "./Lineups/Lineups";
+import Statistics from "./Statistics/Statistics";
 
 const MatchDetails = ({ matchId }) => {
   const [activeTab, setActiveTab] = useState(1);
@@ -31,7 +32,7 @@ const MatchDetails = ({ matchId }) => {
         </ul>
       </header>
       {activeTab === 1 && <Lineups matchId={matchId} />}
-      {/* {activeTab === 2 && <Lineups />} */}
+      {activeTab === 2 && <Statistics />}
     </div>
   );
 };
